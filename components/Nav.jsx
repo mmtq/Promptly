@@ -26,7 +26,7 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
-        <p className="text-xl font-bold text-gray-800">Promptly</p>
+        <a href="/"><p className="text-xl font-bold text-gray-800">Promptly</p></a>
       </div>
 
       {/* Desktop Nav */}
