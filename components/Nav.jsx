@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 const Nav = () => {
-  const isUserLoggedIn = true
+  const { data: session } = useSession()
   const [providers, setProviders] = useState(null)
   const [toogleDropDown, setToogleDropDown] = useState(false)
 
@@ -32,7 +32,7 @@ const Nav = () => {
       {/* Desktop Nav */}
 
       <div className="hidden sm:flex">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <>
             <div className='flex gap-3 md:gap-5'>
               <Link href="/create-prompt" className="black_btn">
@@ -45,7 +45,7 @@ const Nav = () => {
 
               <Link href="/profile">
                 <Image
-                  src="/images/profile.svg"
+                  src={session?.user.image}
                   width={37}
                   height={37}
                   className="rounded-full"
@@ -74,10 +74,10 @@ const Nav = () => {
       {/* Mobile Nav */}
 
       <div className="sm:hidden flex relative">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className='flex'>
             <Image
-              src="/images/profile.svg"
+              src={session?.user.image}
               width={37}
               height={37}
               className="rounded-full"

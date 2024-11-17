@@ -1,5 +1,10 @@
 import Feed from '@components/Feed'
 
+export const metadata = {
+  title: 'Home - Promptly',  // Title for the home page
+  description: 'Welcome to Promptly, the best place to discover and share AI prompts!',  // Description for the home page
+};
+
 const Home = () => {
   return (
     <section className='w-full flex-center flex-col'>
